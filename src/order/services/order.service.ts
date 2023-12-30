@@ -5,35 +5,35 @@ import { Order } from '../models';
 
 @Injectable()
 export class OrderService {
-  private orders: Record<string, Order> = {}
+  private orders: Record<string, Order> = {};
 
   findById(orderId: string): Order {
-    return this.orders[ orderId ];
+    return this.orders[orderId];
   }
 
   create(data: any) {
-    const id = v4()
+    const id = v4();
     const order = {
       ...data,
       id,
       status: 'inProgress',
     };
 
-    this.orders[ id ] = order;
+    this.orders[id] = order;
 
     return order;
   }
 
-  update(orderId, data) {
+  update(orderId: string, data: Order) {
     const order = this.findById(orderId);
 
     if (!order) {
       throw new Error('Order does not exist.');
     }
 
-    this.orders[ orderId ] = {
+    this.orders[orderId] = {
       ...data,
       id: orderId,
-    }
+    };
   }
 }
