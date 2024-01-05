@@ -1,0 +1,18 @@
+# this folder will be created 
+node_modules
+dist
+
+# skip all internal files
+.env* 
+.eslint.js
+.pritierrc
+Dockerfile
+.dockerignore
+README.md
+
+# git files are not required for docker
+.gitignore
+.git
+
+# there is no sense to add cdk files
+cdk.out
